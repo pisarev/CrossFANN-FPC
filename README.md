@@ -3,7 +3,7 @@
 > Cross-platform **FANN** (Fast Artificial Neural Network Library) wrapper for **Delphi** and **FreePascal**  
 > – Windows x64 & Linux x64/arm64 – with fully **dynamic** runtime loading.
 
-This fork is based on *Hatsunearu FANN for Delphi* (originally in Laex/Delphi-Artificial-Neural-Network-Library) and has been re-engineered for modern tool-chains and multiple OSes.
+This fork is based on *Hatsunearu FANN for Delphi* (originally in Laex/Delphi-Artificial-Neural-Network-Library) and has been re‑engineered for modern tool‑chains and multiple OSes.
 
 ---
 
@@ -19,31 +19,42 @@ This fork is based on *Hatsunearu FANN for Delphi* (originally in Laex/Delphi-Ar
 
 ## Library placement & packaging
 
-| Platform | Archive asset | Where files must end up |
-|----------|---------------|-------------------------|
-| **Windows x64** | `fann-2.2.0-win64.zip` | Unzip so your tree becomes<br>```
+### Windows x64
+
+```text
 MyApp.exe
 └── fann\
     fanndouble.dll
     fannfloat.dll
     fannfixed.dll
-``` |
-| **Linux x64** | `fann-2.2.0-linux-x86_64.tar.xz` | Extract next to the executable:<br>```
-/path/to/myapp              (ELF)
-└── bin/
-    └── fann/
-        libfloatfann.so -> ./libfloatfann.so.2.2.0
-        libdoublefann.so -> …
-        libfixedfann.so  -> …
-```<br>Symbolic links are preserved by `tar.xz`; the wrapper calls `dlopen(<exe_dir>/bin/fann/...)`. |
-| *Windows x86* | — | not provided in this fork |
+```
 
-No environment variables (`PATH` / `LD_LIBRARY_PATH`) are required: the wrapper prepends the executable directory automatically.
+Download and unzip **`fann-2.2.0-win64.zip`** so that the `fann\` directory sits next to your application’s executable. No `PATH` editing required—the wrapper automatically prepends the executable directory when loading the DLLs.
+
+### Linux x64
+
+```text
+/path/to/myapp              (ELF)
+/path/to/myapp/bin/
+└── fann/
+    libfloatfann.so  -> ./libfloatfann.so.2.2.0
+    libdoublefann.so -> …
+    libfixedfann.so  -> …
+```
+
+Extract **`fann-2.2.0-linux-x86_64.tar.xz`** beside the executable.  
+Symbolic links are preserved by `tar.xz`; the wrapper calls `dlopen(<exe_dir>/bin/fann/...)` and therefore doesn’t need to touch `LD_LIBRARY_PATH`.
+
+### Windows x86
+
+Not provided in this fork.
+
+---
 
 ## License
 
-* Original Hatsunearu code – **LGPL 2.1**.  
-* All modifications in this fork – **MPL 1.1**.
+* Original Hatsunearu code – **LGPL 2.1**  
+* All modifications in this fork – **MPL 1.1**
 
 ---
 
