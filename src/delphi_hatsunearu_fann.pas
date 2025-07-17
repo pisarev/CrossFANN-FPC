@@ -12,7 +12,6 @@ unit delphi_hatsunearu_fann;
 // or
 // {$DEFINE DOUBLEFANN} // Uncomment for double fann
 { .$DEFINE USE_DEBUG_DLL } // Debug dll not worked yet
-{$I Directives.inc}
 
 interface
 
