@@ -4187,7 +4187,7 @@ implementation
 
 uses
   {$IFDEF FPC}
-  Windows, {$IFDEF UNIX}dynlibs, {$ENDIF}VersionUtils;
+  {$IFDEF MSWINDOWS}Windows, {$ENDIF}{$IFDEF FPC}dynlibs, {$ENDIF}VersionUtils;
   {$ELSE}
   Winapi.Windows, VersionUtils;
   {$ENDIF}
