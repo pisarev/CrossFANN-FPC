@@ -79,9 +79,17 @@ Type
 
 const
 {$IFDEF UNIX}
-  FANN_DIR = './bin/fann/';
+  {$IFDEF NO_LOCAL_FANN}
+    FANN_DIR = '';
+  {$ELSE}
+    FANN_DIR = './bin/fann/';
+  {$ENDIF}
 {$ELSE}
-  FANN_DIR = '.\fann\';
+  {$IFDEF NO_LOCAL_FANN}
+    FANN_DIR = '';
+  {$ELSE}
+    FANN_DIR = '.\fann\';
+  {$ENDIF}
 {$ENDIF}
 
 {$IF Defined(FIXEDFANN)}
